@@ -1,0 +1,367 @@
+.tetris-page {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 30px;
+
+}
+
+// ================= HEADER =================
+
+.game-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 25px;
+
+    margin-bottom: 30px;
+
+    flex-wrap: wrap;
+
+}
+
+.game-header h1 {
+
+    font-size: 42px;
+
+    color: #4CAF50;
+
+    margin-bottom: 10px;
+
+}
+
+.game-header p {
+
+    color: #666;
+
+    line-height: 1.6;
+
+}
+
+// ================= SCORE =================
+
+.score-panel {
+
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+}
+
+.score-card {
+
+    min-width: 120px;
+
+    background: linear-gradient(135deg,#4CAF50,#2E7D32);
+
+    color: white;
+
+    padding: 18px;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 20px rgba(0,0,0,.15);
+
+}
+
+.score-card span {
+
+    display: block;
+
+    font-size: 14px;
+
+    opacity: .9;
+
+}
+
+.score-card h2 {
+
+    margin-top: 10px;
+
+    font-size: 34px;
+
+}
+
+// ================= GAME =================
+
+.game-container {
+
+    display: grid;
+
+    grid-template-columns: auto 320px;
+
+    gap: 30px;
+
+    align-items: start;
+
+}
+
+// ================= BOARD =================
+
+.board {
+
+    background: #111827;
+
+    padding: 12px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.25);
+
+}
+
+.row {
+
+    display: flex;
+
+}
+
+.cell {
+
+    width: 34px;
+
+    height: 34px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    transition: .15s;
+
+}
+
+// ================= SIDEBAR =================
+
+.sidebar {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+.card {
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.card h3 {
+
+    color: #4CAF50;
+
+    margin-bottom: 18px;
+
+}
+
+.card ul {
+
+    padding-left: 22px;
+
+}
+
+.card li {
+
+    margin-bottom: 12px;
+
+    color: #555;
+
+    line-height: 1.6;
+
+}
+
+// ================= BUTTON =================
+
+.restart-btn {
+
+    width: 100%;
+
+    border: none;
+
+    cursor: pointer;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    background: #4CAF50;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    transition: .3s;
+
+}
+
+.restart-btn:hover {
+
+    background: #388E3C;
+
+    transform: translateY(-2px);
+
+}
+
+// ================= GAME OVER =================
+
+.game-over {
+
+    background: linear-gradient(135deg,#FF9800,#F57C00);
+
+    color: white;
+
+    text-align: center;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    margin-bottom: 25px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.18);
+
+}
+
+.game-over h2 {
+
+    font-size: 36px;
+
+    margin-bottom: 10px;
+
+}
+
+.game-over p {
+
+    margin-bottom: 20px;
+
+    font-size: 18px;
+
+}
+
+.game-over button {
+
+    border: none;
+
+    cursor: pointer;
+
+    padding: 14px 30px;
+
+    border-radius: 10px;
+
+    background: white;
+
+    color: #F57C00;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    transition: .3s;
+
+}
+
+.game-over button:hover {
+
+    transform: scale(1.05);
+
+}
+
+// ================= RESPONSIVE =================
+
+@media(max-width:1000px){
+
+    .game-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .sidebar{
+
+        width:100%;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .tetris-page{
+
+        padding:20px;
+
+    }
+
+    .game-header{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        text-align:center;
+
+    }
+
+    .score-panel{
+
+        justify-content:center;
+
+    }
+
+    .cell{
+
+        width:28px;
+
+        height:28px;
+
+    }
+
+}
+
+@media(max-width:500px){
+
+    .cell{
+
+        width:22px;
+
+        height:22px;
+
+    }
+
+    .score-card{
+
+        min-width:90px;
+
+    }
+
+    .score-card h2{
+
+        font-size:26px;
+
+    }
+
+    .game-header h1{
+
+        font-size:32px;
+
+    }
+
+}

@@ -1,0 +1,149 @@
+<div class="tetris-page">
+
+    <div class="game-header">
+
+        <div>
+
+            <h1>🧱 Tetris</h1>
+
+            <p>
+                Arrange the falling blocks and clear complete rows.
+            </p>
+
+        </div>
+
+        <div class="score-panel">
+
+            <div class="score-card">
+
+                <span>🏆 Score</span>
+
+                <h2>{{ score }}</h2>
+
+            </div>
+
+            <div class="score-card">
+
+                <span>⭐ Level</span>
+
+                <h2>{{ level }}</h2>
+
+            </div>
+
+            <div class="score-card">
+
+                <span>📈 Lines</span>
+
+                <h2>{{ lines }}</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    @if(gameOver){
+
+    <div class="game-over">
+
+        <h2>💀 Game Over</h2>
+
+        <p>Your Score: {{ score }}</p>
+
+        <button (click)="startGame()">
+
+            🔄 Play Again
+
+        </button>
+
+    </div>
+
+    }
+
+    <div class="game-container">
+
+        <!-- Board -->
+
+        <div class="board">
+
+            @for(row of board; track $index){
+
+            <div class="row">
+
+                @for(cell of row; track $index){
+
+                <div
+
+                    class="cell"
+
+                    [style.background]="cell === 0 ? '#1f2937' : colors[cell]">
+
+                </div>
+
+                }
+
+            </div>
+
+            }
+
+        </div>
+
+        <!-- Side Panel -->
+
+        <div class="sidebar">
+
+            <div class="card">
+
+                <h3>🎮 Controls</h3>
+
+                <ul>
+
+                    <li>⬅️ Move Left</li>
+
+                    <li>➡️ Move Right</li>
+
+                    <li>⬇️ Move Down</li>
+
+                    <li>⬆️ Rotate</li>
+
+                    <li>Space → Drop</li>
+
+                </ul>
+
+            </div>
+
+            <div class="card">
+
+                <h3>📖 Rules</h3>
+
+                <ul>
+
+                    <li>Complete a row to clear it.</li>
+
+                    <li>Earn points by clearing rows.</li>
+
+                    <li>Game speed increases with level.</li>
+
+                    <li>Don't let blocks reach the top.</li>
+
+                </ul>
+
+            </div>
+
+            <div class="card">
+
+                <button
+                    class="restart-btn"
+                    (click)="startGame()">
+
+                    🔄 Restart Game
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

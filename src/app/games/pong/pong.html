@@ -1,0 +1,139 @@
+<div class="pong-page">
+
+    <div class="game-header">
+
+        <div>
+
+            <h1>🏓 Pong</h1>
+
+            <p>
+                Use <strong>⬆️</strong> and <strong>⬇️</strong> to move your paddle.
+                First player to score <strong>10</strong> points wins.
+            </p>
+
+        </div>
+
+        <div class="score-board">
+
+            <div class="score">
+
+                <h3>😊 You</h3>
+
+                <span>{{ playerScore }}</span>
+
+            </div>
+
+            <div class="divider">
+
+                :
+
+            </div>
+
+            <div class="score">
+
+                <h3>🤖 AI</h3>
+
+                <span>{{ aiScore }}</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="game-container">
+
+        <canvas
+            #gameCanvas
+            [width]="width"
+            [height]="height">
+
+        </canvas>
+
+    </div>
+
+    @if(gameOver){
+
+    <div class="winner-card">
+
+        <h2>
+
+            @if(playerScore > aiScore){
+
+                🎉 Congratulations! You Won!
+
+            } @else {
+
+                🤖 Computer Wins!
+
+            }
+
+        </h2>
+
+        <p>
+
+            Final Score
+
+            <strong>
+
+                {{ playerScore }} - {{ aiScore }}
+
+            </strong>
+
+        </p>
+
+        <button
+            class="restart-btn"
+            (click)="reset()">
+
+            🔄 Play Again
+
+        </button>
+
+    </div>
+
+    }
+
+    <div class="controls">
+
+        <div class="control">
+
+            ⬆️ Move Up
+
+        </div>
+
+        <div class="control">
+
+            ⬇️ Move Down
+
+        </div>
+
+        <div class="control">
+
+            🔄 Press <strong>R</strong> to Restart after Game Over
+
+        </div>
+
+    </div>
+
+    <div class="instructions">
+
+        <h2>🎮 How to Play</h2>
+
+        <ul>
+
+            <li>🏓 Control the left paddle using the keyboard.</li>
+
+            <li>🤖 The right paddle is controlled by AI.</li>
+
+            <li>⚽ Don't let the ball pass your paddle.</li>
+
+            <li>🏆 First player to score <strong>10</strong> points wins.</li>
+
+            <li>🎉 Press <strong>Play Again</strong> or <strong>R</strong> to restart.</li>
+
+        </ul>
+
+    </div>
+
+</div>

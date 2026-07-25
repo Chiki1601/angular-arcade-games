@@ -1,0 +1,106 @@
+<div class="game-page">
+
+    <div class="game-header">
+
+        <div>
+
+            <h1>🟨 2048 Game</h1>
+
+            <p>
+                Combine matching tiles to reach <strong>2048</strong>.
+            </p>
+
+        </div>
+
+        <div class="score-box">
+
+            <span>Score</span>
+
+            <h2>{{ score }}</h2>
+
+        </div>
+
+    </div>
+
+    <div class="toolbar">
+
+        <button (click)="newGame()">
+
+            🔄 New Game
+
+        </button>
+
+    </div>
+
+    @if(hasWon){
+
+    <div class="message success">
+
+        🎉 Congratulations! You reached 2048!
+
+    </div>
+
+    }
+
+    @if(gameOver){
+
+    <div class="message danger">
+
+        💀 Game Over! No more moves left.
+
+    </div>
+
+    }
+
+    <div class="board">
+
+        @for(row of board; track $index){
+
+        <div class="row">
+
+            @for(tile of row; track $index){
+
+            <div
+                class="tile"
+                [style.background]="getTileColor(tile)"
+                [style.color]="getTextColor(tile)">
+
+                @if(tile !== 0){
+
+                {{ tile }}
+
+                }
+
+            </div>
+
+            }
+
+        </div>
+
+        }
+
+    </div>
+
+    <div class="instructions">
+
+        <h3>🎮 Controls</h3>
+
+        <ul>
+
+            <li>⬅️ Move Left</li>
+
+            <li>➡️ Move Right</li>
+
+            <li>⬆️ Move Up</li>
+
+            <li>⬇️ Move Down</li>
+
+            <li>Merge equal tiles to increase your score.</li>
+
+            <li>Reach <strong>2048</strong> to win!</li>
+
+        </ul>
+
+    </div>
+
+</div>

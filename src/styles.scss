@@ -1,0 +1,85 @@
+@use '@angular/material' as mat;
+
+// Angular Material Theme
+
+html {
+  height: 100%;
+
+  @include mat.theme((
+    color: (
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+body {
+
+  color-scheme: light;
+
+  background-color: var(--mat-sys-surface);
+
+  color: var(--mat-sys-on-surface);
+
+  font: var(--mat-sys-body-medium);
+
+  margin: 0;
+
+  height: 100%;
+}
+
+/* Global Styles */
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+html,
+body {
+
+  margin: 0;
+
+  padding: 0;
+
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+}
+:root{
+
+    --background:#f5f5f5;
+
+    --surface:#ffffff;
+
+    --text:#111827;
+
+    --text-secondary:#666;
+
+    --primary:#4CAF50;
+
+    --sidebar:#1c1c1c;
+
+    --sidebar-text:#ffffff;
+
+}
+
+[data-theme="dark"]{
+
+    --background:#121212;
+
+    --surface:#1e1e1e;
+
+    --text:#ffffff;
+
+    --text-secondary:#bdbdbd;
+
+    --primary:#66BB6A;
+
+    --sidebar:#0f0f0f;
+
+    --sidebar-text:#ffffff;
+
+}

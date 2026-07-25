@@ -1,0 +1,136 @@
+<div class="tic-page">
+
+    <div class="game-header">
+
+        <h1>❌ Tic Tac Toe ⭕</h1>
+
+        <p>
+            Challenge your friend and get three in a row!
+        </p>
+
+    </div>
+
+    <!-- Score Board -->
+
+    <div class="score-board">
+
+        <div class="score-card">
+
+            <h3>❌ Player X</h3>
+
+            <span>{{ playerXScore }}</span>
+
+        </div>
+
+        <div class="score-card">
+
+            <h3>🤝 Draw</h3>
+
+            <span>{{ draws }}</span>
+
+        </div>
+
+        <div class="score-card">
+
+            <h3>⭕ Player O</h3>
+
+            <span>{{ playerOScore }}</span>
+
+        </div>
+
+    </div>
+
+    <!-- Current Turn -->
+
+    @if(!gameOver){
+
+    <div class="turn-card">
+
+        🎮 Current Turn :
+        <strong>{{ currentPlayer }}</strong>
+
+    </div>
+
+    }
+
+    <!-- Winner -->
+
+    @if(winner){
+
+    <div class="winner-card">
+
+        <h2>{{ winner }}</h2>
+
+    </div>
+
+    }
+
+    <!-- Board -->
+
+    <div class="board">
+
+        @for(cell of board; track $index){
+
+        <button
+
+            class="cell"
+
+            (click)="play($index)"
+
+            [disabled]="cell !== '' || gameOver">
+
+            {{ cell }}
+
+        </button>
+
+        }
+
+    </div>
+
+    <!-- Actions -->
+
+    <div class="actions">
+
+        <button
+
+            class="restart-btn"
+
+            (click)="resetGame()">
+
+            🔄 New Round
+
+        </button>
+
+        <button
+
+            class="reset-btn"
+
+            (click)="resetScore()">
+
+            🗑 Reset Scores
+
+        </button>
+
+    </div>
+
+    <!-- Rules -->
+
+    <div class="rules">
+
+        <h2>📖 Rules</h2>
+
+        <ul>
+
+            <li>❌ Player X always starts first.</li>
+
+            <li>⭕ Players take turns placing their mark.</li>
+
+            <li>🏆 First player to get 3 in a row wins.</li>
+
+            <li>🤝 If all 9 cells are filled without a winner, the game ends in a draw.</li>
+
+        </ul>
+
+    </div>
+
+</div>

@@ -1,0 +1,29 @@
+<aside class="sidebar">
+
+    <div class="sidebar-title">
+        Navigation
+    </div>
+
+    <nav>
+
+        @for (item of menuItems; track item.title) {
+
+        <a
+            [routerLink]="item.route"
+            routerLinkActive="active">
+
+            <span class="icon">
+                {{ item.icon }}
+            </span>
+
+            <span>
+                {{ item.title }}
+            </span>
+
+        </a>
+
+        }
+
+    </nav>
+
+</aside>

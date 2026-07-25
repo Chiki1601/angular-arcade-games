@@ -1,0 +1,103 @@
+<div class="sudoku-page">
+
+    <div class="game-header">
+
+        <div>
+
+            <h1>🧩 Sudoku</h1>
+
+            <p>
+                Fill every row, column and 3×3 box with numbers 1 to 9.
+            </p>
+
+        </div>
+
+        <div class="actions">
+
+            <button
+                class="primary-btn"
+                (click)="check()">
+
+                ✅ Check
+
+            </button>
+
+            <button
+                class="secondary-btn"
+                (click)="reset()">
+
+                🔄 Reset
+
+            </button>
+
+        </div>
+
+    </div>
+
+    @if(message){
+
+    <div class="message">
+
+        {{ message }}
+
+    </div>
+
+    }
+
+    <div class="board">
+
+        @for(row of board; track $index; let rowIndex = $index){
+
+        <div class="row">
+
+            @for(cell of row; track $index; let colIndex = $index){
+
+            <input
+
+                class="cell"
+
+                type="number"
+
+                min="1"
+
+                max="9"
+
+                maxlength="1"
+
+                [value]="cell === 0 ? '' : cell"
+
+                [readOnly]="isFixed(rowIndex,colIndex)"
+
+                [class.fixed]="isFixed(rowIndex,colIndex)"
+
+                (input)="updateCell(rowIndex,colIndex,$event)">
+
+            }
+
+        </div>
+
+        }
+
+    </div>
+
+    <div class="instructions">
+
+        <h3>📖 Rules</h3>
+
+        <ul>
+
+            <li>Each row must contain numbers <strong>1-9</strong>.</li>
+
+            <li>Each column must contain numbers <strong>1-9</strong>.</li>
+
+            <li>Each 3×3 box must contain numbers <strong>1-9</strong>.</li>
+
+            <li>Gray cells are fixed and cannot be edited.</li>
+
+            <li>Fill all empty cells and click <strong>Check</strong>.</li>
+
+        </ul>
+
+    </div>
+
+</div>

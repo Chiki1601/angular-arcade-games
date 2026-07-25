@@ -1,0 +1,51 @@
+<section class="games-page">
+
+    <div class="page-header">
+
+        <h1>🎮 Game Library</h1>
+
+        <p>
+            Select a game and start playing.
+        </p>
+
+    </div>
+
+    <div class="games-grid">
+
+        @for(game of games; track game.title){
+
+        <div class="game-card">
+
+            <div class="icon">
+
+                {{game.icon}}
+
+            </div>
+
+            <h3>
+
+                {{game.title}}
+
+            </h3>
+
+            <p>
+
+                {{game.description}}
+
+            </p>
+
+            <a
+                [routerLink]="game.route"
+                class="play-button">
+
+                Play Now
+
+            </a>
+
+        </div>
+
+        }
+
+    </div>
+
+</section>

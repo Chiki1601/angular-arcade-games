@@ -1,0 +1,181 @@
+<div class="dice-page">
+
+    <div class="game-header">
+
+        <h1>🎲 Dice Roller</h1>
+
+        <p>
+            Roll two dice and see who wins!
+        </p>
+
+    </div>
+
+    <!-- Dice Area -->
+
+    <div class="dice-board">
+
+        <div class="player-card">
+
+            <h2>👤 Player 1</h2>
+
+            <div class="dice">
+
+                {{ playerOneFace }}
+
+            </div>
+
+            <h3>{{ player1 }}</h3>
+
+        </div>
+
+        <div class="vs">
+
+            VS
+
+        </div>
+
+        <div class="player-card">
+
+            <h2>👤 Player 2</h2>
+
+            <div class="dice">
+
+                {{ playerTwoFace }}
+
+            </div>
+
+            <h3>{{ player2 }}</h3>
+
+        </div>
+
+    </div>
+
+    <!-- Winner -->
+    @if(winner){
+
+    <div class="winner-card">
+
+        <h2>{{ winner }}</h2>
+
+        <p>
+
+            🎯 Total Score :
+            <strong>{{ total }}</strong>
+
+        </p>
+
+    </div>
+
+    }
+
+    <!-- Buttons -->
+
+    <div class="actions">
+
+        <button class="roll-btn" (click)="rollDice()" [disabled]="isRolling">
+
+            @if(isRolling){
+
+            🎲 Rolling...
+
+            } @else {
+
+            🎲 Roll Dice
+
+            }
+
+        </button>
+
+        <button class="reset-btn" (click)="reset()">
+
+            🔄 Reset
+
+        </button>
+
+    </div>
+
+    <!-- History -->
+
+    <div class="history">
+
+        <h2>📜 Roll History</h2>
+
+        @if(history.length){
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>#</th>
+
+                    <th>P1</th>
+
+                    <th>P2</th>
+
+                    <th>Total</th>
+
+                    <th>Winner</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @for(item of history; track $index){
+
+                <tr>
+
+                    <td>{{ $index + 1 }}</td>
+
+                    <td>{{ item.player1 }}</td>
+
+                    <td>{{ item.player2 }}</td>
+
+                    <td>{{ item.total }}</td>
+
+                    <td>{{ item.winner }}</td>
+
+                </tr>
+
+                }
+
+            </tbody>
+
+        </table>
+
+        } @else {
+
+        <p class="empty-history">
+
+            No rolls yet. Click <strong>Roll Dice</strong> to start.
+
+        </p>
+
+        }
+
+    </div>
+
+    <!-- Rules -->
+
+    <div class="rules">
+
+        <h2>📖 Rules</h2>
+
+        <ul>
+
+            <li>🎲 Both players roll one dice.</li>
+
+            <li>🏆 Higher number wins the round.</li>
+
+            <li>🤝 Same number means Draw.</li>
+
+            <li>📜 Last 10 rolls are saved in history.</li>
+
+        </ul>
+
+    </div>
+
+</div>

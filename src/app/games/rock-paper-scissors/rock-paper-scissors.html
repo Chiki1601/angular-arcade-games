@@ -1,0 +1,185 @@
+<div class="rps-page">
+
+    <div class="game-header">
+
+        <h1>✊ Rock • 📄 Paper • ✂️ Scissors</h1>
+
+        <p>
+            Choose your move and challenge the computer!
+        </p>
+
+    </div>
+
+    <!-- Score Board -->
+
+    <div class="score-board">
+
+        <div class="score-card">
+
+            <h3>😊 You</h3>
+
+            <span>{{ playerScore }}</span>
+
+        </div>
+
+        <div class="score-card">
+
+            <h3>🤝 Draw</h3>
+
+            <span>{{ draws }}</span>
+
+        </div>
+
+        <div class="score-card">
+
+            <h3>💻 Computer</h3>
+
+            <span>{{ computerScore }}</span>
+
+        </div>
+
+    </div>
+
+    <!-- Choices -->
+
+    <div class="choices">
+
+        @for(choice of choices; track choice.name){
+
+        <button
+            class="choice-card"
+            (click)="play(choice)">
+
+            <div class="emoji">
+
+                {{ choice.emoji }}
+
+            </div>
+
+            <div class="title">
+
+                {{ choice.name }}
+
+            </div>
+
+        </button>
+
+        }
+
+    </div>
+
+    <!-- Battle Area -->
+
+    <div class="battle-area">
+
+        <div class="player">
+
+            <h3>You</h3>
+
+            <div class="battle-card">
+
+                @if(playerChoice){
+
+                <span class="battle-emoji">
+
+                    {{ playerChoice.emoji }}
+
+                </span>
+
+                <p>{{ playerChoice.name }}</p>
+
+                } @else {
+
+                <span class="battle-emoji">❔</span>
+
+                <p>Waiting...</p>
+
+                }
+
+            </div>
+
+        </div>
+
+        <div class="vs">
+
+            VS
+
+        </div>
+
+        <div class="computer">
+
+            <h3>Computer</h3>
+
+            <div class="battle-card">
+
+                @if(computerChoice){
+
+                <span class="battle-emoji">
+
+                    {{ computerChoice.emoji }}
+
+                </span>
+
+                <p>{{ computerChoice.name }}</p>
+
+                } @else {
+
+                <span class="battle-emoji">❔</span>
+
+                <p>Waiting...</p>
+
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Result -->
+
+    <div class="result-card">
+
+        <h2>
+
+            {{ result }}
+
+        </h2>
+
+    </div>
+
+    <!-- Reset -->
+
+    <div class="actions">
+
+        <button
+            class="reset-btn"
+            (click)="reset()">
+
+            🔄 Reset Game
+
+        </button>
+
+    </div>
+
+    <!-- Rules -->
+
+    <div class="rules">
+
+        <h2>📖 Rules</h2>
+
+        <ul>
+
+            <li>🪨 Rock beats ✂️ Scissors</li>
+
+            <li>📄 Paper beats 🪨 Rock</li>
+
+            <li>✂️ Scissors beats 📄 Paper</li>
+
+            <li>Same choices result in a 🤝 Draw.</li>
+
+        </ul>
+
+    </div>
+
+</div>
